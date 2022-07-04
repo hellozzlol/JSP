@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>도서정보</title>
+</head>
+<style>
+#show {
+	padding: 10px;
+}
+
+form {
+	padding: 10px;
+}
+
+form>label {
+	display: inline-block;
+	width: 25%;
+	background-color: pink;
+	text-align: center;
+}
+
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	width:700px;
+	text-align: center;
+}
+table>thead>tr{
+    background-color: rgb(213, 214, 255);
+}
+
+tr, th, td {
+	padding: 5px;
+}
+
+tr {
+	width: 90%;
+	border-bottom: 1px solid black;
+}
+</style>
+<script src="index1.js"></script>
+<body>
+	<form action="book" name="bookFrm" method="post">
+		<label for="bookCode">도서코드</label> 
+		<input type="text" name="bookCode" id="bookCode"><br> 
+		<label for="bookTitle">도서명</label> <input type="text" name="bookTitle" id="bookTitle"><br> 
+		<label for="author">저자</label> <input type="text" name="author" id="author"><br>
+		<label for="publisher">출판사</label> <input type="text" name="publisher" id="publisher"><br> 
+		<label for="price">금액</label> <input type="text" name="price" id="price"><br> <br>
+		<input type="submit" value="저장"> <input type="button" value="선택삭제" id="deleteSel">
+	</form>
+	<div id="show">
+		<table>
+			<thead>
+				<tr>
+					<th><input type="checkbox"></th>
+					<th>도서코드</th>
+					<th>도서명</th>
+					<th>저자</th>
+					<th>출판사</th>
+					<th>가격</th>
+					<th>삭제</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+</body>
+
+</html> 

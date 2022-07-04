@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>파일업로드</title>
+
+<body>
+	<style>
+form {
+	border: 2px solid rgb(255, 128, 128);
+}
+
+form>label {
+	display: inline-block;
+	width: 25%;
+	background-color: rgb(0, 0, 255);
+}
+
+#memberName {
+	background-color: aqua;
+}
+
+input[type="submit"] {
+	right:50px;
+}
+
+input[name="memberId"] {
+	background-color: rgb(202, 231, 135);
+}
+
+input[name="birth"] {
+	background-color: rgb(66, 208, 233);
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src = "book.js"></script>
+</head>
+
+	<form action="WomenServlet" name="bookFrm" method="post">
+		<label for="BookCode">도서코드</label> 
+		<input type="number"name="BookCode" id="BookCode" readonly><br> 
+		
+		<label for="Bookname">도서명</label> 
+		<input type="text" name="Bookname"id="Bookname"><br> 
+		
+		<label for="Writer">저자</label> 
+		<input type="text" name="Writer" id="Writer"><br> 
+		
+		 <label for="publisher">출판사</label> 
+			<input type="text" name="publisher" id="publisher"><br> 
+		 <label for="pirce">금액</label> 
+			<input type="text" name="pirce" id="pirce"><br> 
+			
+		<input type="submit" value="저장"> 
+		
+			<input type="button" value="선택삭제" id="deleteSel">
+
+
+	</form>
+	<div id="show">
+		<table border="1">
+		<!-- <caption>회원리스트</caption> -->
+			<thead>
+				<tr>
+				<th id ="checkbox"></th>
+					<th>도서코드</th>
+					<th>도서명</th>
+					<th>저자</th>
+					<th>출판사</th>
+					<th>가격</th>
+					<th>삭제</th>
+				
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+
+		</table>
+	</div>
+	
+
+
+	
+	
+	
+</body>
+</html>
