@@ -8,7 +8,7 @@ import co.micol.prj.comm.DAO;
 
 public class EmpDAO extends DAO {
 
-	/// JOBs 전체 조회
+	// JOBs 전체 조회
 	public ArrayList<jobsVO> selectJobs() {
 
 		ArrayList<jobsVO> list = new ArrayList<>();
