@@ -1,4 +1,4 @@
-package co.micol.prj;
+package co.micol.prj.dept;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,26 +8,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/emp/hello")
-public class HelloWorld extends HttpServlet {
+
+/**
+ * Servlet implementation class DeptLsitServ
+ */
+@WebServlet("/DeptList")
+public class DeptLsitServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-   
-    public HelloWorld() {
-        super();
-       
-    }
-
+    
+  
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setAttribute("list", new DeptDAO().selectDept());
+		request.getRequestDispatcher("/WEB-INF/jsp/Dept/deptLIst.jsp")
+		.forward(request,response);
 	}
 
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		doGet(request, response);
-	}
+	
 
 }
