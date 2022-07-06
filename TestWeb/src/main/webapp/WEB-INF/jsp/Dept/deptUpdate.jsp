@@ -115,6 +115,7 @@ input[type=search]{
 </script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 	<%
 	DeptVO dept = (DeptVO) request.getAttribute("dept");
 	%>

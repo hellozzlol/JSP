@@ -61,6 +61,7 @@ public class EmpDAO extends DAO {
 				vo.setLastname(rs.getString("last_name"));
 				vo.setEmail(rs.getString("email"));
 				vo.setHiredate(rs.getString("hire_date"));
+				vo.setDepartmentId(rs.getString("department_id"));
 				list.add(vo);
 
 			}
@@ -75,8 +76,30 @@ public class EmpDAO extends DAO {
 	}
 
 	// 단건조회
-	public EmpVO selectOne(String id) {
+	public EmpVO selectOne(String employeeId) {
 		EmpVO vo = new EmpVO();
+		try {
+			//연결
+			getConnect();
+			String spl = "select * from employees where employee_id = ?";
+			psmt = conn.prepareStatement(spl);
+			psmt.setString(1, employeeId);
+			rs=psmt.executeQuery();
+			if(rs.next()) {
+				vo.setEmployeeId(rs.getString("employee_id"));
+				vo.setLastname(rs.getString("last_name"));
+				vo.setEmail(rs.getString("email"));
+				vo.setHiredate(rs.getString("hire_date"));
+				vo.setJobId(rs.getString("job_id"));
+				vo.setDepartmentId(rs.getString("department_id"));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			//연결해제
+			disconnect();
+		}
 		return vo;
 
 	}
@@ -86,16 +109,21 @@ public class EmpDAO extends DAO {
 	public int empinsert(EmpVO vo) {
 		int cnt = 0;
 		try {
+			//1.connect
 			getConnect();
-			String sql = " insert into " + " employees( employee_id, last_name, email, job_id, hire_date)"
-					+ " values(?,?,?,?,?) ";
-
+			String sql = " insert into  employees( employee_id, last_name, email, job_id, hire_date, department_id)"
+					+ " values((select max(employee_id)+1 from employees),"
+			+"?,?,?,?,?)";
+			
+//2.splㄱㄱ구문준비
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, vo.getEmployeeId());
-			psmt.setString(2, vo.getLastname());
-			psmt.setString(3, vo.getEmail());
-			psmt.setString(4, vo.getJobId());
-			psmt.setString(5, vo.getHiredate());
+			//3.spl구문실핼
+			//psmt.setString(1, vo.getEmployeeId());
+			psmt.setString(1, vo.getLastname());
+			psmt.setString(2, vo.getEmail());
+			psmt.setString(3, vo.getJobId());
+			psmt.setString(4, vo.getHiredate());
+			psmt.setString(5, vo.getDepartmentId());
 
 			cnt = psmt.executeUpdate();
 		} catch (Exception e) {
@@ -109,6 +137,37 @@ public class EmpDAO extends DAO {
 
 	// 수정
 
+	public int update(EmpVO vo) {
+		int cnt = 0;
+		return cnt;
+	}
+	
+	
+	
 	// 삭제
 
+	public int delete(EmpVO vo) {
+		int cnt=0;
+		try {
+			//1.연결
+			getConnect();
+			String sql = " delete from employees where employee_id =?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getEmployeeId());	
+			cnt = psmt.executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			//2.연결해제
+			disconnect();
+		}
+		return cnt;
+	}
+	
+	
+	
+	
+	
+	
+	
 }

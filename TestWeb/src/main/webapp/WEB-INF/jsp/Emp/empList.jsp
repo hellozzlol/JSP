@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <title>사원목록</title>
 <h1>사원목록</h1>
 <a href="/TestWeb/empInsert">사원등록</a><br>
@@ -19,6 +20,7 @@
 </form>
 </head>
 <body>
+
 	<table>
 		<thead>
 			<tr>
@@ -32,7 +34,7 @@
 			<c:forEach var="vo" items="${list}"> 
 				<tr>
 					<td>${vo.employeeId}</td>
-					<td>${vo.lastname}</td>
+					<td><a href="empUpdate?employeeId=${vo.employeeId}">${vo.lastname}</a></td>
 					<td>${vo.email}</td>
 					<td>${vo.hiredate}</td>
 				</tr>

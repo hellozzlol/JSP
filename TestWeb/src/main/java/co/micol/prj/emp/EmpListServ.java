@@ -25,10 +25,12 @@ public class EmpListServ extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		
-		
-		EmpDAO dao = new EmpDAO();
+		//파라미터
 		String id =request.getParameter("departmentId");
+		//DB처리
+		EmpDAO dao = new EmpDAO();
 		request.setAttribute("list", dao.selectAll(id));
+		//페이지로이동
 		request.getRequestDispatcher("/WEB-INF/jsp/Emp/empList.jsp").forward(request,response);
 		
 	}

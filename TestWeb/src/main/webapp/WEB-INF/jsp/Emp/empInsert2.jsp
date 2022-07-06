@@ -3,6 +3,7 @@
 <%@page import="co.micol.prj.emp.jobsVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	   <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,11 +18,11 @@
 <title>empInsert.jsp</title>
 <script>
 function validateForm(){
-	/* if(document.frm.employeeId.value =="" ){
+	if(document.frm.employeeId.value =="" ){
 		alert("사원번호를 입력해주세요^_^")
 				frm.employeeId.focus();
 		return false;
-	} */
+	}
 	if(document.frm.lastName.value =="" ){
 		alert("이름를 입력해주세요^_^")
 				frm.lastName.focus();
@@ -88,10 +89,11 @@ function validateForm(){
    
    <br><label for="hireDate">직무<select name="jobId"></label><br>
    
-   <% ArrayList<jobsVO> list =(ArrayList<jobsVO>)request.getAttribute("jobs");
-   for(jobsVO jobs : list) { %>
-   <option value="<%=jobs.getJobId()%>"><%=jobs.getJobTitle() %>
-   <% } %>
+ <c:forEach items="jobs" var="job">
+   <option value="${jobs.getJobId()}">${jobs.getJobTitle}
+   </option>
+   </c:forEach>
+ 
    </select><br>
    <button>사원 등록</button>
    </form>

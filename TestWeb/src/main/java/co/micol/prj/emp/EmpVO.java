@@ -6,6 +6,7 @@ private String lastname;
 private String email;
 private String jobId;
 private String hiredate;
+private String departmentId;
 
 
 
@@ -17,6 +18,7 @@ public EmpVO() {
 	this.email = email;
 	this.jobId=jobId;
 	this.hiredate = hiredate;
+	this.departmentId = departmentId;
 
 }
 
@@ -38,6 +40,16 @@ public String getLastname() {
 	return lastname;
 }
 
+
+
+public String getDepartmentId() {
+	return departmentId;
+}
+
+
+public void setDepartmentId(String departmentId) {
+	this.departmentId = departmentId;
+}
 
 
 public void setLastname(String lastname) {

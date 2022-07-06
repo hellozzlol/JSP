@@ -4,11 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>message.jsp</title>
+
 </head>
 <body>
-<%@ include file="/WEB-INF/jsp/header.jsp" %>
-메인입니다.
+<script >
+alert('<%=request.getAttribute("msg") %>')
+location.href='empList.jsp'
+</script>
 
 </body>
 </html>
