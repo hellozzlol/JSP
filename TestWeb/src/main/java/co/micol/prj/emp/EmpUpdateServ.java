@@ -41,7 +41,7 @@ public class EmpUpdateServ extends HttpServlet {
 		
 		
 		// 파라미터 ID 담고
-		String id = request.getParameter("employeeId");
+		//String id = request.getParameter("employeeId");
 		String name = request.getParameter("lastName");
 		String email = request.getParameter("email");
 		String jobid = request.getParameter("jobId");
@@ -49,7 +49,7 @@ public class EmpUpdateServ extends HttpServlet {
 
 		EmpVO vo = new EmpVO();
 		
-		vo.setEmployeeId(id);
+		vo.setEmployeeId(request.getParameter("employeeId"));
 		vo.setLastname(name);
 		vo.setEmail(email);
 		vo.setJobId(jobid);

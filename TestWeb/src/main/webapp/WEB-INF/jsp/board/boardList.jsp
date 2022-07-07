@@ -8,8 +8,18 @@
 <meta charset="UTF-8">
 <title>게시판목록</title>
 </head>
+<style>
+th, td {
+	border: 1px solid #000000;
+	border-color: #bebebe;
+	width: auto;
+	padding: 5px;
+	margin: auto;
+	text-align: center;
+}
+</style>
 <body>
-<table>
+	<table>
 		<thead>
 			<tr>
 				<th>아이디</th>
@@ -20,8 +30,8 @@
 				<th>조회수</th>
 			</tr>
 		</thead>
-		 <tbody>
-			<c:forEach var="vo" items="${list}"> 
+		<tbody>
+			<c:forEach var="vo" items="${list}">
 				<tr>
 					<td>${vo.id}</td>
 					<td>${vo.title}</td>
@@ -32,7 +42,7 @@
 				</tr>
 			</c:forEach>
 
-		</tbody> 
+		</tbody>
 	</table>
 </body>
 </html>

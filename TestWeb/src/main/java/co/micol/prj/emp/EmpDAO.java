@@ -139,6 +139,13 @@ public class EmpDAO extends DAO {
 
 	public int update(EmpVO vo) {
 		int cnt = 0;
+		try {
+			
+		}catch(Exception e) {
+			
+		}finally {
+			
+		}
 		return cnt;
 	}
 	

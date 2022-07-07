@@ -7,8 +7,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>부서목록</title>
 </head>
+
+<style>
+th, td {
+	border: 1px solid #000000;
+	border-color: #bebebe;
+	width: auto;
+	padding: 5px;
+	margin: auto;
+	text-align: center;
+}
+
+</style>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <h4>부서목록</h4>

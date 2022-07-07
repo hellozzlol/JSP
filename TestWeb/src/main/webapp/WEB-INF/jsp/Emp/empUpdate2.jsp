@@ -62,9 +62,11 @@ EmpVO vo = (EmpVO)request.getAttribute("emp");
    <form name="frm" action="empInsert" method="post" onsubmit="return validateForm()">
    <label for="empId">사원번호</label>
    <input type="text" name="employeeId" id="empId" readonly="readonly" value="<%=vo.getEmployeeId()%>"><br> 
+   //${vo.getEmployeeId() } 요즘엔 el표현식으로 많이 씀
    
    <label for="empName">사원이름</label>
    <input type="text" name="lastName" id="empName" value="<%=vo.getLastname()%>"><br>
+    //${vo.getlastName() } 요즘엔 el표현식으로 많이 씀
    
    <label for="empEmail">이메일</label>
    <input type="text" name="email" id="empEmail" value="<%=vo.getEmail()%>"><br>

@@ -19,6 +19,18 @@
 
 </form>
 </head>
+<style>
+th, td {
+	border: 1px solid #000000;
+	border-color: #bebebe;
+	width: auto;
+	padding: 5px;
+	margin: auto;
+	text-align: center;
+}
+
+
+</style>
 <body>
 
 	<table>

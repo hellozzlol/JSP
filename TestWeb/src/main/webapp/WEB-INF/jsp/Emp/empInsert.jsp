@@ -57,6 +57,21 @@ function validateForm(){
 
 </script>
 </head>
+<style>
+button{
+   
+   width: 150px;
+   height: 50px;
+   font-size: larger;
+   color:rgb(255, 255, 255);
+   background-color: rgb(255, 0, 0);
+   font-weight: bold;
+   margin:10px;
+   text-align: center;
+   display: inline;
+  
+}
+</style>
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <body>
 <h2>사원 등록</h2>   
