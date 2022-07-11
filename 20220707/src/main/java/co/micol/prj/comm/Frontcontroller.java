@@ -64,7 +64,8 @@ public class Frontcontroller extends HttpServlet {
 				response.getWriter().append(viewPage.substring(5));
 				return;
 			}
-			viewPage = "WEB-INF/views/" + viewPage + ".jsp";// 시스템에서 접근 가능한 폴더를 더해주고
+			//viewPage = "WEB-INF/views/" + viewPage + ".jsp";// 시스템에서 접근 가능한 폴더를 더해주고
+			viewPage = viewPage + ".tiles"; // tiles를 이용한 composition view pattern 사용시
 			System.out.println("viewPage");
 			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 			dispatcher.forward(request, response);// 원하는 페이지를 호출해서 전달함.
