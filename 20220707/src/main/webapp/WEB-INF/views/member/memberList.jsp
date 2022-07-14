@@ -10,7 +10,6 @@
 <body>
 <c:forEach items="${list}" var ="m" >
 ${m.memberId } : ${m.memberName } : ${m.memberAuthor }<br>
-
 </c:forEach>
 </body>
 </html>

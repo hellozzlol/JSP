@@ -5,15 +5,9 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-
-
-
-
-
-
 
 <meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <title>empInsert.jsp</title>
 <script>
 function validateForm(){
@@ -70,6 +64,10 @@ button{
    text-align: center;
    display: inline;
   
+}
+
+h2{
+color: skyblue;
 }
 </style>
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>

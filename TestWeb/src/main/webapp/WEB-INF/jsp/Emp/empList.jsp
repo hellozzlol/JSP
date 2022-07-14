@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <title>사원목록</title>
 <h1>사원목록</h1>
@@ -15,7 +16,7 @@
 <form>
 <input name="departmentId">
 
-<button>검색</button>
+<button type="button" class="btn btn-dark">검색</button>
 
 </form>
 </head>
@@ -28,7 +29,13 @@ th, td {
 	margin: auto;
 	text-align: center;
 }
+th{
+background-color: rgba(255, 0, 0, 0.2); 
+}
 
+button{
+margin : 30px;
+}
 
 </style>
 <body>

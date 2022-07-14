@@ -13,7 +13,7 @@ import co.micol.prj.dept.DeptVO;
 //http://localhost/컨텍스트패스//empInsert
 @WebServlet("/empUpdate")
 public class EmpUpdateServ extends HttpServlet {
-
+	private static final long serialVersionUID = 1L;
 	// 수정페이지로 이동
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -55,14 +55,13 @@ public class EmpUpdateServ extends HttpServlet {
 		vo.setJobId(jobid);
 		vo.setHiredate(hiredate);
 
-		// DB처리
-		EmpDAO EmpDAO = new EmpDAO();
-		int cnt = EmpDAO.update(vo);
+		
+		
 
 		// 결과출력
-		response.getWriter()
-
-				.append(cnt + "건이 등록됨");
+		int cnt = new EmpDAO().update(vo);
+		response.getWriter().append("<script>").append("alert('" + cnt + "건 수정 완료');")
+				.append("location.href='EmpSelectServ';").append("</script>");
 
 	}
 
