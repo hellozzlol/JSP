@@ -12,10 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.sohyeon.command.Command;
+import co.sohyeon.notice.command.NoticeDelete;
 import co.sohyeon.notice.command.NoticeForm;
 import co.sohyeon.notice.command.NoticeInsert;
 import co.sohyeon.notice.command.NoticeList;
 import co.sohyeon.notice.command.NoticeSelect;
+
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -39,7 +41,10 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeList.do", new NoticeList()); //게시글 목록
 		map.put("/noticeForm.do", new NoticeForm()); //게시글 입력폼 호출
 		map.put("/noticeInsert.do", new NoticeInsert()); //게시글 등록
+		map.put("/noticeDelete.do", new NoticeDelete()); //게시글삭제
 		map.put("/noticeSelect.do", new NoticeSelect()); //하나의 게시글 조회
+		//map.put("/replyList.do", new ReplyList());//댓글리스트 가져오기
+		
 		
 	}
 

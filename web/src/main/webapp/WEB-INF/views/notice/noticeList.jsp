@@ -160,9 +160,7 @@ strong {
 									<td>${b.noticeDate }</td>
 									<td>${b.noticeAttech }</td>
 									<td>${b.noticeHit }</td>
-									<td align="center">
-										<button type="button" onclick="delNotice(this)">삭제</button>
-									</td>
+									
 								</tr>
 							</c:forEach>
 						</c:when>

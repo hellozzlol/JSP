@@ -10,6 +10,7 @@ import java.util.List;
 import co.sohyeon.command.DataSource;
 import co.sohyeon.notice.service.NoticeService;
 import co.sohyeon.notice.vo.NoticeVO;
+import co.sohyoen.reply.vo.ReplyVO;
 
 public class NoticeServiceImpl implements NoticeService {
 	private DataSource dao = DataSource.getInstance();
@@ -22,6 +23,7 @@ public class NoticeServiceImpl implements NoticeService {
 		// 전체목록
 		List<NoticeVO> list = new ArrayList<>();
 		NoticeVO vo;
+		
 		String sql = "SELECT * FROM NOTICE ORDER BY NOTICE_ID DESC";
 		try {
 			conn = dao.getConnection();
@@ -33,7 +35,7 @@ public class NoticeServiceImpl implements NoticeService {
 				vo.setNoticeWriter(rs.getString("notice_writer"));
 				vo.setNoticeTitle(rs.getString("notice_title"));
 				vo.setNoticeDate(rs.getDate("notice_date"));
-				vo.setNoticeAttech(rs.getString("noticeattech"));
+				vo.setNoticeAttech(rs.getString("notice_attech"));
 				vo.setNoticeHit(rs.getInt("notice_hit"));
 				list.add(vo);
 			}
@@ -44,10 +46,13 @@ public class NoticeServiceImpl implements NoticeService {
 		}
 		return list;
 	}
+	
+	
 
 	@Override
 	public NoticeVO noticeSelect(NoticeVO vo) {
 		// 글 상세보기
+		
 		String sql = "select * from notice where notice_id = ?";
 		try {
 			conn = dao.getConnection();
@@ -60,7 +65,7 @@ public class NoticeServiceImpl implements NoticeService {
 				vo.setNoticeTitle(rs.getString("notice_title"));
 				vo.setNoticeSubject(rs.getString("notice_subject"));
 				vo.setNoticeDate(rs.getDate("notice_date"));
-				vo.setNoticeAttech(rs.getString("noticeattech"));
+				vo.setNoticeAttech(rs.getString("notice_attech"));
 				vo.setNoticeHit(rs.getInt("notice_hit"));
 			}
 		} catch (SQLException e) {
@@ -101,6 +106,17 @@ public class NoticeServiceImpl implements NoticeService {
 	public int noticeDelete(NoticeVO vo) {
 		// 글 삭제
 		int n = 0;
+		String sql = "DELETE FROM NOTICE WHERE NOTICE_ID = ?";
+		try {
+			conn = dao.getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getNoticeId());
+			n = psmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
 		return n;
 	}
 
@@ -130,7 +146,7 @@ public class NoticeServiceImpl implements NoticeService {
 				vo.setNoticeTitle(rs.getString("notice_title"));
 				vo.setNoticeSubject(rs.getString("notice_subject"));
 				vo.setNoticeDate(rs.getDate("notice_date"));
-				vo.setNoticeAttech(rs.getString("noticeattech"));
+				vo.setNoticeAttech(rs.getString("notice_attech"));
 				vo.setNoticeHit(rs.getInt("notice_hit"));
 				list.add(vo);
 				
@@ -157,4 +173,9 @@ public class NoticeServiceImpl implements NoticeService {
 		}
 	}
 
+	
+
+	
+
+	
 }

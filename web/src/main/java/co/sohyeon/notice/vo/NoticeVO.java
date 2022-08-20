@@ -16,4 +16,5 @@ public class NoticeVO {
 	private int noticeHit;
 	private String noticeAttech;  //실제파일명
 	private String noticeAttechDir; //파일이존재하는 물리적 위치명
+	
 }

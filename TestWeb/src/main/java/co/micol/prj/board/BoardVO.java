@@ -47,8 +47,4 @@ public void setHit(String hit) {
 }
 
 
-
-
-
-
 }
